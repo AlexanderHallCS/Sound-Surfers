@@ -17,6 +17,7 @@
 		11E7916A26ED4D6700BD91C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7916926ED4D6700BD91C2 /* Launch Screen.storyboard */; };
 		344ABDF126ED57C300BC9D29 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 344ABDF026ED57C300BC9D29 /* DSWaveformImage */; };
 		344ABDF326ED57F800BC9D29 /* mechanism.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 344ABDF226ED57F800BC9D29 /* mechanism.mp3 */; };
+		344ABDF526ED631500BC9D29 /* WaveSpriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ABDF426ED631500BC9D29 /* WaveSpriteController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		11E7916326ED303B00BD91C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E7916926ED4D6700BD91C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		344ABDF226ED57F800BC9D29 /* mechanism.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mechanism.mp3; sourceTree = "<group>"; };
+		344ABDF426ED631500BC9D29 /* WaveSpriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveSpriteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				11E7915626ED303400BD91C2 /* GameScene.sks */,
 				11E7915826ED303400BD91C2 /* Actions.sks */,
 				11E7915A26ED303400BD91C2 /* GameScene.swift */,
+				344ABDF426ED631500BC9D29 /* WaveSpriteController.swift */,
 				11E7916926ED4D6700BD91C2 /* Launch Screen.storyboard */,
 				11E7915C26ED303400BD91C2 /* GameViewController.swift */,
 				11E7915E26ED303400BD91C2 /* Main.storyboard */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E7915B26ED303400BD91C2 /* GameScene.swift in Sources */,
+				344ABDF526ED631500BC9D29 /* WaveSpriteController.swift in Sources */,
 				11E7915D26ED303400BD91C2 /* GameViewController.swift in Sources */,
 				11E7915526ED303300BD91C2 /* AppDelegate.swift in Sources */,
 			);
