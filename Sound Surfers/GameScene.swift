@@ -19,6 +19,13 @@ class GameScene: SKScene {
     private var audioPlayer : AVAudioPlayer?
     
     override func didMove(to view: SKView) {
+        let background = SKSpriteNode(imageNamed: "GameBG")
+
+        background.size = self.size
+        background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        background.zPosition = -1;
+        addChild(background)
+        
         audioPlayer = try! AVAudioPlayer(contentsOf: audioURL)
         audioPlayer!.prepareToPlay()
         
