@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		11E7916026ED303400BD91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7915E26ED303400BD91C2 /* Main.storyboard */; };
 		11E7916226ED303B00BD91C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E7916126ED303B00BD91C2 /* Assets.xcassets */; };
 		11E7916A26ED4D6700BD91C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7916926ED4D6700BD91C2 /* Launch Screen.storyboard */; };
+		344ABDF126ED57C300BC9D29 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 344ABDF026ED57C300BC9D29 /* DSWaveformImage */; };
+		344ABDF326ED57F800BC9D29 /* mechanism.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 344ABDF226ED57F800BC9D29 /* mechanism.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		11E7916126ED303B00BD91C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11E7916326ED303B00BD91C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E7916926ED4D6700BD91C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		344ABDF226ED57F800BC9D29 /* mechanism.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mechanism.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344ABDF126ED57C300BC9D29 /* DSWaveformImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 		11E7915326ED303300BD91C2 /* Sound Surfers */ = {
 			isa = PBXGroup;
 			children = (
+				344ABDF226ED57F800BC9D29 /* mechanism.mp3 */,
 				11E7915426ED303300BD91C2 /* AppDelegate.swift */,
 				11E7915626ED303400BD91C2 /* GameScene.sks */,
 				11E7915826ED303400BD91C2 /* Actions.sks */,
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = "Sound Surfers";
+			packageProductDependencies = (
+				344ABDF026ED57C300BC9D29 /* DSWaveformImage */,
+			);
 			productName = "Sound Surfers";
 			productReference = 11E7915126ED303300BD91C2 /* Sound Surfers.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 11E7914826ED303300BD91C2;
+			packageReferences = (
+				344ABDEF26ED57C300BC9D29 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
+			);
 			productRefGroup = 11E7915226ED303300BD91C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344ABDF326ED57F800BC9D29 /* mechanism.mp3 in Resources */,
 				11E7916026ED303400BD91C2 /* Main.storyboard in Resources */,
 				11E7915726ED303400BD91C2 /* GameScene.sks in Resources */,
 				11E7916226ED303B00BD91C2 /* Assets.xcassets in Resources */,
@@ -339,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		344ABDEF26ED57C300BC9D29 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		344ABDF026ED57C300BC9D29 /* DSWaveformImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 344ABDEF26ED57C300BC9D29 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11E7914926ED303300BD91C2 /* Project object */;
 }
