@@ -1,8 +1,8 @@
 //
 //  GameScene.swift
-//  test
+//  Sound Surfers
 //
-//  Created by Matthew Tran on 9/11/21.
+//  Created by Alexander Hall on 9/11/21.
 //
 
 import SpriteKit
@@ -11,16 +11,14 @@ import DSWaveformImage
 import AVFoundation
 
 class GameScene: SKScene {
-    
-    private let waveformImageDrawer = WaveformImageDrawer()
     private let audioURL = Bundle.main.url(forResource: "mechanism", withExtension: "mp3")!
-    private var waveformSprite : SKSpriteNode?
     
     private var waveSpriteCtl : WaveSpriteController?
     
+    let background = SKSpriteNode(imageNamed: "GameBG")
+    
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "GameBG")
-
+        
         background.size = self.size
         background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         background.zPosition = -1;
@@ -36,22 +34,6 @@ class GameScene: SKScene {
             }
         }
     }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {}
-    
-    func touchMoved(toPoint pos : CGPoint) {}
-    
-    func touchUp(atPoint pos : CGPoint) {}
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {}
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {}
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {}
-    
     
     override func update(_ currentTime: TimeInterval) {
         waveSpriteCtl?.update()
