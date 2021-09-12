@@ -15,6 +15,9 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        score = 0
+        
         if let view = self.view as! SKView? {
             let scene = StartScene()
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)

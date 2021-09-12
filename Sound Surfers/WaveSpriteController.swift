@@ -40,7 +40,6 @@ class WaveSpriteController {
         let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: url)
         waveformAnalyzer?.samples(count: Int(duration / (1.0 / 100.0))) { data in
             if let data = data {
-                print("waveData size is \(data.count)")
                 completionCallback(WaveSpriteController(audioPlayer: audioPlayer, waveData: data, viewDimensions: viewDimensions))
             }
         }

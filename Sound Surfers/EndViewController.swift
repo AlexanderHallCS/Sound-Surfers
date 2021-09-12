@@ -14,9 +14,16 @@ class EndViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var songLabel: UILabel!
     
+    @IBOutlet var winOrLoseImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scoreLabel.text = "Score: \(score)"
+        if(gameOver) {
+            winOrLoseImage.image = UIImage(named: "GameOverText")
+        } else {
+            winOrLoseImage.image = UIImage(named: "YouWonText")
+        }
     }
 
 }

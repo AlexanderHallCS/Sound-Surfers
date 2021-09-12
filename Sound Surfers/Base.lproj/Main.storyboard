@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="scoreLabel" destination="Vkl-x4-3Ux" id="jZe-4K-xlj"/>
                         <outlet property="songLabel" destination="wvv-PC-JX9" id="dmD-Sp-aLI"/>
+                        <outlet property="winOrLoseImage" destination="yBP-Hs-o72" id="gmj-OE-iG4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1e2-qq-4pY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

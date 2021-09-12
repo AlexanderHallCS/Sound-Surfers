@@ -8,8 +8,9 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
     var prevVC: StartViewController!
     
@@ -30,6 +31,10 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(segueToEnd), name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
     }
 
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        
+    }
+    
     @objc func segueToEnd(){
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
         

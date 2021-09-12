@@ -11,21 +11,25 @@ import DSWaveformImage
 import AVFoundation
 
 var score = 0
-class GameScene: SKScene, SKPhysicsContactDelegate {
-    private let audioURL = Bundle.main.url(forResource: "mechanism", withExtension: "mp3")!
+var gameOver = false
+
+class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
+    private let audioURL = Bundle.main.url(forResource: "Test", withExtension: "mp3")!
     private var waveSpriteCtl : WaveSpriteController?
+    private var gameVC : GameViewController?
     let player = SKSpriteNode(imageNamed: "Surfer")
     let background = SKSpriteNode(imageNamed: "GameBG")
     
     let playerCategory: UInt32 = 0x1 << 0
     let groundCategory: UInt32 = 0x1 << 1
     
-    var gameOver = false
-    
     var scoreLabel = SKLabelNode()
+    
+    var sceneIsPaused = false
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        
         //Background
         background.size = self.size
         background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -55,7 +59,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DispatchQueue.main.async {
                 self.waveSpriteCtl = wsc
                 if let wsc = wsc {
-                    wsc.sprite.position = CGPoint(x: -self.size.width/2, y: -self.size.height/2)
+                    wsc.sprite.position = CGPoint(x: -self.size.width/2, y: -self.size.height/2
+                    )
+                    wsc.audioPlayer.delegate = self
                     self.addChild(wsc.sprite)
                     wsc.play()
                 }
@@ -67,19 +73,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let _: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
     }
     
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        sceneIsPaused = true
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
+    }
+    
     func checkOOB() {
-        if(player.position.x < -self.size.width/2 && !gameOver) {
+        if((player.position.x < -self.size.width/2 || player.position.y < -self.size.height/2) && !gameOver) {
             gameOver = true
             waveSpriteCtl?.audioPlayer.stop();
+            sceneIsPaused = true
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        waveSpriteCtl?.update()
-        checkOOB()
-        score += 1
-        scoreLabel.text = "Score: \(score)";
+        if(!sceneIsPaused) {
+            waveSpriteCtl?.update()
+            checkOOB()
+            score += 1
+            scoreLabel.text = "Score: \(score)";
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
