@@ -24,13 +24,14 @@ class GameScene: SKScene {
         background.zPosition = -1;
         addChild(background)
         
-        try! WaveSpriteController.fromURL(audioURL) { wsc in
+        try! WaveSpriteController.fromURL(audioURL, viewDimensions: self.size) { wsc in
             DispatchQueue.main.async {
                 self.waveSpriteCtl = wsc
                 if let wsc = wsc {
+                    wsc.sprite.position = CGPoint(x: -self.size.width/2, y: -self.size.height/2)
                     self.addChild(wsc.sprite)
+                    wsc.play()
                 }
-                wsc?.play()
             }
         }
     }

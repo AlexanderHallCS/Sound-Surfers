@@ -13,27 +13,34 @@ import AVFoundation
 class WaveSpriteController {
     private var audioPlayer : AVAudioPlayer
     private var waveData : [Float]
-    private var waveSprite = SKSpriteNode(color: .red, size: CGSize(width: 30, height: 100))
-    var sprite : SKSpriteNode {
-        get {
-            return waveSprite
-        }
-    }
-    init(audioPlayer: AVAudioPlayer, waveData: [Float]) {
+    private var waveSprites : [SKSpriteNode]
+    let barWidth = 5.0
+    let barSpacing = 3.0
+    var sprite = SKNode()
+    init(audioPlayer: AVAudioPlayer, waveData: [Float], viewDimensions: CGSize) {
         self.audioPlayer = audioPlayer
         self.waveData = waveData
-        waveSprite.anchorPoint = CGPoint(x: 0.5, y: 0)
+        
+        let bars = Double(viewDimensions.width) / (barWidth + barSpacing)
+        waveSprites = []
+        for i in 0...Int(bars) {
+            let sprite = SKSpriteNode(color: .red, size: CGSize(width: barWidth, height: 0))
+            sprite.anchorPoint = CGPoint(x: 0.5, y: 0)
+            sprite.position.x = CGFloat((barWidth + barSpacing) * Double(i))
+            self.sprite.addChild(sprite)
+            waveSprites.append(sprite)
+        }
     }
-    static func fromURL(_ url: URL, completionCallback: @escaping (WaveSpriteController?) -> Void) throws {
+    static func fromURL(_ url: URL, viewDimensions: CGSize, completionCallback: @escaping (WaveSpriteController?) -> Void) throws {
         let audioPlayer = try AVAudioPlayer(contentsOf: url)
         audioPlayer.prepareToPlay()
         let duration = audioPlayer.duration
         
         let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: url)
-        waveformAnalyzer?.samples(count: Int(duration / (1.0 / 30.0))) { data in
+        waveformAnalyzer?.samples(count: Int(duration / (1.0 / 100.0))) { data in
             if let data = data {
                 print("waveData size is \(data.count)")
-                completionCallback(WaveSpriteController(audioPlayer: audioPlayer, waveData: data))
+                completionCallback(WaveSpriteController(audioPlayer: audioPlayer, waveData: data, viewDimensions: viewDimensions))
             }
         }
     }
@@ -44,7 +51,14 @@ class WaveSpriteController {
     
     func update() {
         let currentTimeNormalized = audioPlayer.currentTime / audioPlayer.duration
-        let ix = Double(waveData.count) * currentTimeNormalized
-        waveSprite.size.height = CGFloat((1 - waveData[Int(ix)]) * 200)
+        let _ix = Double(waveData.count) * currentTimeNormalized
+        var ix = Int(_ix)
+        for sprite in waveSprites.reversed() {
+            sprite.size.height = CGFloat((1 - waveData[ix]) * 200)
+            ix -= 1
+            if ix < 0 {
+                break
+            }
+        }
     }
 }
