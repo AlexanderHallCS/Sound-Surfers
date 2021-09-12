@@ -37,9 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     
     override func didMove(to view: SKView) {
         
-        let selectedSongFileName = filesAndTrackNames[Int.random(in: 1..<filesAndTrackNames.count)].0
-        selectedSong = filesAndTrackNames[Int.random(in: 1..<filesAndTrackNames.count)].1
-        audioURL = Bundle.main.url(forResource: selectedSongFileName, withExtension: "mp3")!
+        let fileAndSongName = filesAndTrackNames[Int.random(in: 1..<filesAndTrackNames.count)]
+        selectedSong = fileAndSongName.1
+        audioURL = Bundle.main.url(forResource: fileAndSongName.0, withExtension: "mp3")!
         self.physicsWorld.contactDelegate = self
         
         //Background
@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
         player.physicsBody?.allowsRotation = false
         
         //Physics
-        physicsWorld.gravity = CGVector(dx: 0, dy: -2.34)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -3.34)
 
         player.physicsBody?.categoryBitMask = playerCategory
         player.physicsBody?.collisionBitMask = groundCategory
@@ -122,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     }
 
     func jump() {
-        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 50))
+        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

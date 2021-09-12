@@ -50,7 +50,8 @@ class WaveSpriteController {
     }
     
     func update() {
-        let currentTimeNormalized = audioPlayer.currentTime / audioPlayer.duration
+        let offset = 0.6;
+        let currentTimeNormalized = (audioPlayer.currentTime + offset) / audioPlayer.duration
         let _ix = Double(waveData.count) * currentTimeNormalized
         var ix = Int(_ix)
         for sprites in waveSprites.reversed() {
@@ -60,7 +61,7 @@ class WaveSpriteController {
                 break
             }
             
-            sprites.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 5.0, height: sprites.size.height))
+            sprites.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 5.0, height: sprites.size.height+SKTexture(imageNamed: "Surfer").size().height*1.2))
             sprites.physicsBody?.isDynamic = false
             sprites.physicsBody?.categoryBitMask = 2
             sprites.physicsBody?.collisionBitMask = 1
