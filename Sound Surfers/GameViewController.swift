@@ -11,8 +11,11 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var prevVC: StartViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let view = self.view as! SKView? {
             let scene = GameScene()
             scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -29,9 +32,10 @@ class GameViewController: UIViewController {
 
     @objc func segueToEnd(){
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
-        self.performSegue(withIdentifier: "gameToEnd", sender: self)
-        self.view.removeFromSuperview()
-        self.view = nil
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.performSegue(withIdentifier: "gameToEnd", sender: self)
+        }
     }
     
     override var shouldAutorotate: Bool {

@@ -10,6 +10,7 @@ import GameplayKit
 import DSWaveformImage
 import AVFoundation
 
+var score = 0
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private let audioURL = Bundle.main.url(forResource: "mechanism", withExtension: "mp3")!
     private var waveSpriteCtl : WaveSpriteController?
@@ -20,6 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let groundCategory: UInt32 = 0x1 << 1
     
     var gameOver = false
+    
+    var scoreLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -42,6 +45,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.collisionBitMask = groundCategory
         player.physicsBody?.contactTestBitMask = groundCategory
         
+        scoreLabel.position = CGPoint(x: self.frame.width/3, y: self.frame.height/3)
+        scoreLabel.text = "Score: \(score)";
+        scoreLabel.fontSize = 40
+        addChild(scoreLabel)
 
         //Generate the waves
         try! WaveSpriteController.fromURL(audioURL, viewDimensions: self.size) { wsc in
@@ -71,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         waveSpriteCtl?.update()
         checkOOB()
+        score += 1
+        scoreLabel.text = "Score: \(score)";
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

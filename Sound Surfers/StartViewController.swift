@@ -30,7 +30,7 @@ class StartViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !tappedScreen {
-            tappedScreen = true
+            self.tappedScreen = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 self.performSegue(withIdentifier: "startToGame", sender: nil)
             })
