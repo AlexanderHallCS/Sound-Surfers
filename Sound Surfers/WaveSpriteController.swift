@@ -28,6 +28,7 @@ class WaveSpriteController {
             sprite.anchorPoint = CGPoint(x: 0.5, y: 0)
             sprite.position.x = CGFloat((barWidth + barSpacing) * Double(i))
             self.sprite.addChild(sprite)
+            
             waveSprites.append(sprite)
         }
     }
@@ -53,12 +54,18 @@ class WaveSpriteController {
         let currentTimeNormalized = audioPlayer.currentTime / audioPlayer.duration
         let _ix = Double(waveData.count) * currentTimeNormalized
         var ix = Int(_ix)
-        for sprite in waveSprites.reversed() {
-            sprite.size.height = CGFloat((1 - waveData[ix]) * 200)
+        for sprites in waveSprites.reversed() {
+            sprites.size.height = CGFloat((1 - waveData[ix]) * 200)
             ix -= 1
             if ix < 0 {
                 break
             }
+            
+            sprites.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 5.0, height: sprites.size.height))
+            sprites.physicsBody?.isDynamic = false
+            sprites.physicsBody?.categoryBitMask = 2
+            sprites.physicsBody?.collisionBitMask = 1
+            sprites.physicsBody?.contactTestBitMask = 1
         }
     }
 }
