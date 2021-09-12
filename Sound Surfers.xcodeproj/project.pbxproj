@@ -21,6 +21,10 @@
 		344ABDF126ED57C300BC9D29 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 344ABDF026ED57C300BC9D29 /* DSWaveformImage */; };
 		344ABDF326ED57F800BC9D29 /* mechanism.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 344ABDF226ED57F800BC9D29 /* mechanism.mp3 */; };
 		344ABDF526ED631500BC9D29 /* WaveSpriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344ABDF426ED631500BC9D29 /* WaveSpriteController.swift */; };
+		349B06FB26EDF5060096471B /* Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 349B06F726EDF5060096471B /* Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3 */; };
+		349B06FC26EDF5060096471B /* HOME - Pyxis-3Ax6jTZlu_g.opus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 349B06F826EDF5060096471B /* HOME - Pyxis-3Ax6jTZlu_g.opus.mp3 */; };
+		349B06FD26EDF5060096471B /* HOME - Resonance-8GW6sLrK40k.opus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 349B06F926EDF5060096471B /* HOME - Resonance-8GW6sLrK40k.opus.mp3 */; };
+		349B06FE26EDF5060096471B /* Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 349B06FA26EDF5060096471B /* Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		11E7917926EDF0D700BD91C2 /* Test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Test.mp3; sourceTree = "<group>"; };
 		344ABDF226ED57F800BC9D29 /* mechanism.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mechanism.mp3; sourceTree = "<group>"; };
 		344ABDF426ED631500BC9D29 /* WaveSpriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveSpriteController.swift; sourceTree = "<group>"; };
+		349B06F726EDF5060096471B /* Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3"; sourceTree = "<group>"; };
+		349B06F826EDF5060096471B /* HOME - Pyxis-3Ax6jTZlu_g.opus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "HOME - Pyxis-3Ax6jTZlu_g.opus.mp3"; sourceTree = "<group>"; };
+		349B06F926EDF5060096471B /* HOME - Resonance-8GW6sLrK40k.opus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "HOME - Resonance-8GW6sLrK40k.opus.mp3"; sourceTree = "<group>"; };
+		349B06FA26EDF5060096471B /* Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,10 @@
 			children = (
 				344ABDF226ED57F800BC9D29 /* mechanism.mp3 */,
 				11E7917926EDF0D700BD91C2 /* Test.mp3 */,
+				349B06F826EDF5060096471B /* HOME - Pyxis-3Ax6jTZlu_g.opus.mp3 */,
+				349B06F926EDF5060096471B /* HOME - Resonance-8GW6sLrK40k.opus.mp3 */,
+				349B06F726EDF5060096471B /* Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3 */,
+				349B06FA26EDF5060096471B /* Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3 */,
 				11E7917726EDE93300BD91C2 /* MyNameisJeffSoundEffect.mp3 */,
 				11E7915426ED303300BD91C2 /* AppDelegate.swift */,
 				11E7915A26ED303400BD91C2 /* StartScene.swift */,
@@ -158,7 +170,11 @@
 				344ABDF326ED57F800BC9D29 /* mechanism.mp3 in Resources */,
 				11E7916026ED303400BD91C2 /* Main.storyboard in Resources */,
 				11E7916226ED303B00BD91C2 /* Assets.xcassets in Resources */,
+				349B06FE26EDF5060096471B /* Smash Mouth - All Star-L_jWHffIx5E.m4a.mp3 in Resources */,
 				11E7916A26ED4D6700BD91C2 /* Launch Screen.storyboard in Resources */,
+				349B06FB26EDF5060096471B /* Rick Astley - Never Gonna Give You Up (Official Music Video)-dQw4w9WgXcQ.opus.mp3 in Resources */,
+				349B06FD26EDF5060096471B /* HOME - Resonance-8GW6sLrK40k.opus.mp3 in Resources */,
+				349B06FC26EDF5060096471B /* HOME - Pyxis-3Ax6jTZlu_g.opus.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
