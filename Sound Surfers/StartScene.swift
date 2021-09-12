@@ -12,7 +12,6 @@ class StartScene: SKScene {
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "StartBG")
         let playText = SKSpriteNode(imageNamed: "PlayText")
-        print("moved to view")
 
         background.size = self.size
         background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
