@@ -24,8 +24,16 @@ class GameViewController: UIViewController {
             view.ignoresSiblingOrder = true
             view.contentMode = .scaleToFill
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(segueToEnd), name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
     }
 
+    @objc func segueToEnd(){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
+        self.performSegue(withIdentifier: "gameToEnd", sender: self)
+        self.view.removeFromSuperview()
+        self.view = nil
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }

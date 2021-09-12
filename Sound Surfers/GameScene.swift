@@ -19,6 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerCategory: UInt32 = 0x1 << 0
     let groundCategory: UInt32 = 0x1 << 1
     
+    var gameOver = false
+    
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         //Background
@@ -29,12 +31,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Player
         self.addChild(player)
-        player.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "surfer"), size: CGSize(width: 50, height: 100))
+        player.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Surfer"), size: CGSize(width: 50, height: 100))
         player.size = CGSize(width: 70, height: 70)
         player.physicsBody?.allowsRotation = false
         
         //Physics
-        physicsWorld.gravity = CGVector(dx: 0, dy: -1.02)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -2.34)
 
         player.physicsBody?.categoryBitMask = playerCategory
         player.physicsBody?.collisionBitMask = groundCategory
@@ -55,15 +57,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-
-        if collision == groundCategory | playerCategory {
-            print("Clllision")
+        let _: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+    }
+    
+    func checkOOB() {
+        if(player.position.x < -self.size.width/2 && !gameOver) {
+            gameOver = true
+            waveSpriteCtl?.audioPlayer.stop();
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
         waveSpriteCtl?.update()
+        checkOOB()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

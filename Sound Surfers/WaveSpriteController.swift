@@ -11,7 +11,7 @@ import AVFoundation
 
 // Contains the sprites and the audio player. Call the `update` method every frame to update the sprites.
 class WaveSpriteController {
-    private var audioPlayer : AVAudioPlayer
+    var audioPlayer : AVAudioPlayer
     private var waveData : [Float]
     private var waveSprites : [SKSpriteNode]
     let barWidth = 5.0
