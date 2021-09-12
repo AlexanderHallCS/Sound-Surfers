@@ -67,17 +67,17 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextSpace" translatesAutoresizingMaskIntoConstraints="NO" id="cHp-YU-zaF">
-                                <rect key="frame" x="265" y="131" width="314" height="128"/>
+                                <rect key="frame" x="211" y="131" width="422" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-x4-3Ux">
-                                <rect key="frame" x="286" y="150" width="278" height="21"/>
+                                <rect key="frame" x="233" y="151" width="370" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-PC-JX9">
-                                <rect key="frame" x="286" y="217" width="272" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-PC-JX9">
+                                <rect key="frame" x="233" y="218" width="370" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -89,7 +89,7 @@
                         <constraints>
                             <constraint firstItem="Cjq-ko-ntP" firstAttribute="centerX" secondItem="Btu-ch-lGu" secondAttribute="centerX" id="1U1-DE-SzA"/>
                             <constraint firstItem="yBP-Hs-o72" firstAttribute="centerX" secondItem="Btu-ch-lGu" secondAttribute="centerX" id="1gY-3U-Yyw"/>
-                            <constraint firstItem="cHp-YU-zaF" firstAttribute="width" secondItem="Btu-ch-lGu" secondAttribute="width" multiplier="0.372038" id="4tE-ma-bCZ"/>
+                            <constraint firstItem="cHp-YU-zaF" firstAttribute="width" secondItem="Btu-ch-lGu" secondAttribute="width" multiplier="0.5" id="4tE-ma-bCZ"/>
                             <constraint firstItem="cHp-YU-zaF" firstAttribute="centerY" secondItem="Btu-ch-lGu" secondAttribute="centerY" id="CbG-gM-tgs"/>
                             <constraint firstItem="Cjq-ko-ntP" firstAttribute="height" secondItem="Btu-ch-lGu" secondAttribute="height" multiplier="0.182051" id="EtK-3t-YIO"/>
                             <constraint firstItem="FOX-QG-JYe" firstAttribute="centerX" secondItem="Btu-ch-lGu" secondAttribute="centerX" id="GrA-KA-31o"/>

@@ -18,7 +18,21 @@ class EndViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let labelFont = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        //let attributes :Dictionary = [NSAttributedString.Key.font : labelFont]
+        //var attrString = NSAttributedString(string: "Foo", attributes:attributes)
         scoreLabel.text = "Score: \(score)"
+        songLabel.text = "Song: \(selectedSong)"
+        
+        let scoreLabelAttributedText = NSMutableAttributedString.init(string: scoreLabel.text!)
+        scoreLabelAttributedText.addAttribute((NSAttributedString.Key.font), value: labelFont!, range: NSRange(location: 0, length: 6))
+        scoreLabel.attributedText = scoreLabelAttributedText
+        
+        
+        let songLabelAttributedText = NSMutableAttributedString.init(string: songLabel.text!)
+        songLabelAttributedText.addAttribute((NSAttributedString.Key.font), value: labelFont!, range: NSRange(location: 0, length: 6))
+        songLabel.attributedText = songLabelAttributedText
+        
         if(gameOver) {
             winOrLoseImage.image = UIImage(named: "GameOverText")
         } else {

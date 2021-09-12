@@ -13,8 +13,16 @@ import AVFoundation
 var score = 0
 var gameOver = false
 
+var selectedSong = ""
+
 class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
-    private let audioURL = Bundle.main.url(forResource: "Test", withExtension: "mp3")!
+    var filesAndTrackNames: [(String,String)] = [
+                        ("mechanism","(Camellia) - Heart of Android : Even If It's Only By Mechanism"),
+                        ("SmashMouthAllStar","Smash Mouth - All Star"),
+                        ("RickAstleyNeverGonnaGiveYouUp","Rick Astley - Never Gonna Give You Up"),
+                        ("HOMEResonance","Home - Resonance"),
+                        ("HOMEPyxis","HOME - Pyxis")]
+    private var audioURL : URL?
     private var waveSpriteCtl : WaveSpriteController?
     private var gameVC : GameViewController?
     let player = SKSpriteNode(imageNamed: "Surfer")
@@ -25,9 +33,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     
     var scoreLabel = SKLabelNode()
     
-    var sceneIsPaused = false
+    private var sceneIsPaused = false
     
     override func didMove(to view: SKView) {
+        
+        let selectedSongFileName = filesAndTrackNames[Int.random(in: 1..<filesAndTrackNames.count)].0
+        selectedSong = filesAndTrackNames[Int.random(in: 1..<filesAndTrackNames.count)].1
+        audioURL = Bundle.main.url(forResource: selectedSongFileName, withExtension: "mp3")!
         self.physicsWorld.contactDelegate = self
         
         //Background
@@ -55,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
         addChild(scoreLabel)
 
         //Generate the waves
-        try! WaveSpriteController.fromURL(audioURL, viewDimensions: self.size) { wsc in
+        try! WaveSpriteController.fromURL(audioURL!, viewDimensions: self.size) { wsc in
             DispatchQueue.main.async {
                 self.waveSpriteCtl = wsc
                 if let wsc = wsc {
@@ -81,9 +93,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate {
     func checkOOB() {
         if((player.position.x < -self.size.width/2 || player.position.y < -self.size.height/2) && !gameOver) {
             gameOver = true
-            waveSpriteCtl?.audioPlayer.stop();
+            DispatchQueue.main.async {
+                self.waveSpriteCtl?.audioPlayer.stop();
+            }
             sceneIsPaused = true
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "segueToEnd"), object: nil)
+            return
         }
     }
     

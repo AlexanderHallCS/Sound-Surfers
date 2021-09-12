@@ -17,6 +17,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         score = 0
+        gameOver = false
         
         if let view = self.view as! SKView? {
             let scene = StartScene()
