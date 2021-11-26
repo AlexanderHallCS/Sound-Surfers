@@ -1,4 +1,4 @@
-# Sound-Surfers
+# Sound Surfers
 
 <img src="Sound%20Surfers/Assets.xcassets/AppIcon.appiconset/AppIcon.png" width = "150">
 
